@@ -32,7 +32,8 @@
         var compChoice = compChoiceArray[Math.floor(Math.random() * compChoiceArray.length)];
 
         // Assigns the struck key to variable userChoice
-        var userChoice = event.key;
+        var userChoice = event.key.toLowerCase();
+        console.log(userChoice);
 
         var userChoiceElement = document.getElementById("user-choice");
         var compChoiceElement = document.getElementById("comp-choice");
