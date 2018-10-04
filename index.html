@@ -44,19 +44,16 @@
         // Condition to trigger only on valid input of r, p, or s;
         if (userChoice == "r" || userChoice == "s" || userChoice == "p") {
 
-        // Conditional for when the user wins a point
-          if
-            ((compChoice == "r" && userChoice == "p") || (compChoice == "s" && userChoice == "r") || (compChoice == "p" && userChoice == "s")) {
-              userScore = userScore + 1;
+          // Conditional for when the match results in a tie
+          if (userChoice == compChoice) {
+              tieScore++;
             }
-          // Conditional for when the computer wins a point
-          else if
-            ((compChoice == "r" && userChoice == "s") || (compChoice == "s" && userChoice == "p") || (compChoice == "p" && userChoice == "r")) {
-              compScore = compScore + 1;
-            }
-          // Conditional for when the game results in a tie
-          else if (compChoice == userChoice) {
-            tieScore = tieScore + 1;
+          // Conditional for when the user wins a point
+          else if ((userChoice == "p" && compChoice == "r") || (userChoice == "s" && compChoice == "p") || (userChoice == "r" && compChoice == "s")) {
+            userScore++;
+          }
+          else {
+            compScore++;
           }
 
           userChoiceElement.textContent = "You chose: " + userChoice;
@@ -64,11 +61,7 @@
           userScoreElement.textContent = "wins: " + userScore;
           compScoreElement.textContent = "losses: " + compScore;
           tieScoreElement.textContent = "ties: " + tieScore;
-        } else {
-            alert("Hey now... it's rock paper scissors, not pick whatever you want");
-            // alert("Looking at you, Emily");
         }
-
       };
     </script>
 
